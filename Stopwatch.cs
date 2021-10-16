@@ -18,33 +18,45 @@ namespace ConsoleApp1
 
     class Stopwatch
     {
-        public bool isTimeRunning = false;
-
-        public DateTime start;
-
-        public DateTime stop;
-
-        public TimeSpan duration;
+        private DateTime _start;
+        private DateTime _stop;
+        private TimeSpan _duration;
+        private bool _isTimeRunning;
 
 
-        public void StartTime(DateTime start)
+        public void StartTime()
         {
-            isTimeRunning = true;
-            this.start = DateTime.Now;
+            if (_isTimeRunning == true)
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+            _isTimeRunning = true;
+            _start = DateTime.Now;
             Console.WriteLine("Stopwatch Started");
+            }
         }
 
-        public void StopTime(DateTime stop)
+        public void StopTime()
         {
-            this.stop = DateTime.Now;
-            isTimeRunning = false;
+            if (_isTimeRunning == false)
+            {
+                Console.WriteLine("You need to start the stopwatch first!");
+            }
+            else
+            {
+            _stop = DateTime.Now;
+            _isTimeRunning = false;
             Console.WriteLine("Stopwatch Stopped");
+                Duration();
+            }
         }
 
-        public void Duration(DateTime start, DateTime stop)
+        public void Duration()
         {
-            duration = stop - start;
-            Console.WriteLine("Duration is: " + duration);
+            _duration = _stop - _start;
+            Console.WriteLine("Duration is: " + _duration);
         }
               
     }

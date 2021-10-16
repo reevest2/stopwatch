@@ -28,27 +28,11 @@ namespace ConsoleApp1
 
                 if (command == "start")
                 {
-                    if (Stopwatch.isTimeRunning == true)
-                    {
-                        throw new InvalidOperationException();
-                    }
-                    else
-                    {
-                        Stopwatch.StartTime(Stopwatch.start);
-                    }
-
+                    Stopwatch.StartTime();
                 }
                 else if (command == "stop")
                 {
-                    if (Stopwatch.isTimeRunning == false)
-                    {
-                        Console.WriteLine("You need to start the stopwatch first!");
-                    }
-                    else
-                    {
-                        Stopwatch.StopTime(Stopwatch.stop);
-                        Stopwatch.Duration(Stopwatch.start, Stopwatch.stop);
-                    }
+                     Stopwatch.StopTime();
                 }
                 else
                 {
