@@ -18,18 +18,18 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            var Stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             while (true)
             {
-                Stopwatch.Command();
+                stopwatch.Command();
 
-                if (Stopwatch._command == "start")
+                if (stopwatch._command == "start")
                 {
-                    Stopwatch.StartTime();
+                    stopwatch.StartTime();
                 }
-                else if (Stopwatch._command == "stop")
+                else if (stopwatch._command == "stop")
                 {
-                     Stopwatch.StopTime();
+                     stopwatch.StopTime();
                 }
                 else
                 {
