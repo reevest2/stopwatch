@@ -21,16 +21,13 @@ namespace ConsoleApp1
             var Stopwatch = new Stopwatch();
             while (true)
             {
-                Console.WriteLine("");
-                Console.Write("Enter a command \"Start\" or \"Stop\" ");
-                var command = Console.ReadLine();
-                command = command.ToLower();
+                Stopwatch.Command();
 
-                if (command == "start")
+                if (Stopwatch._command == "start")
                 {
                     Stopwatch.StartTime();
                 }
-                else if (command == "stop")
+                else if (Stopwatch._command == "stop")
                 {
                      Stopwatch.StopTime();
                 }

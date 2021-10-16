@@ -22,7 +22,15 @@ namespace ConsoleApp1
         private DateTime _stop;
         private TimeSpan _duration;
         private bool _isTimeRunning;
+        public string _command { get; private set; }
 
+        public void Command()
+        {
+        Console.WriteLine("");
+                Console.Write("Enter a command \"Start\" or \"Stop\" ");
+                var command = Console.ReadLine();
+                _command = command.ToLower();
+        }
 
         public void StartTime()
         {
