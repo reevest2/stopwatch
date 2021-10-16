@@ -18,6 +18,8 @@ namespace ConsoleApp1
 
     class Stopwatch
     {
+        public bool isTimeRunning = false;
+
         public DateTime start;
 
         public DateTime stop;
@@ -25,9 +27,24 @@ namespace ConsoleApp1
         public TimeSpan duration;
 
 
+        public void StartTime(DateTime start)
+        {
+            isTimeRunning = true;
+            this.start = DateTime.Now;
+            Console.WriteLine("Stopwatch Started");
+        }
+
+        public void StopTime(DateTime stop)
+        {
+            this.stop = DateTime.Now;
+            isTimeRunning = false;
+            Console.WriteLine("Stopwatch Stopped");
+        }
+
         public void Duration(DateTime start, DateTime stop)
         {
             duration = stop - start;
+            Console.WriteLine("Duration is: " + duration);
         }
               
     }

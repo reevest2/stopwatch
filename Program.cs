@@ -18,16 +18,43 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            var Stopwatch = new Stopwatch()
-            { start = DateTime.Now };
+            var Stopwatch = new Stopwatch();
+            while (true)
+            {
+                Console.WriteLine("");
+                Console.Write("Enter a command \"Start\" or \"Stop\" ");
+                var command = Console.ReadLine();
+                command = command.ToLower();
 
-            Console.WriteLine("Press Enter");
-            Console.ReadLine();
+                if (command == "start")
+                {
+                    if (Stopwatch.isTimeRunning == true)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    else
+                    {
+                        Stopwatch.StartTime(Stopwatch.start);
+                    }
 
-            Stopwatch.stop = DateTime.Now;
-
-            Stopwatch.Duration(Stopwatch.start, Stopwatch.stop);
-            Console.WriteLine(Stopwatch.duration);
+                }
+                else if (command == "stop")
+                {
+                    if (Stopwatch.isTimeRunning == false)
+                    {
+                        Console.WriteLine("You need to start the stopwatch first!");
+                    }
+                    else
+                    {
+                        Stopwatch.StopTime(Stopwatch.stop);
+                        Stopwatch.Duration(Stopwatch.start, Stopwatch.stop);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Enter start or stop");
+                }
+            }
         }
     }
 }
